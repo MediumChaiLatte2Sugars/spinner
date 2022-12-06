@@ -1,44 +1,17 @@
-setTimeout(() => {
-  process.stdout.write('\r|' + '  ');
-}, 100);
+const animationArray = ['\r|', '\r/', '\r-', '\r\\', '\r|'];
 
-setTimeout(() => {
-  process.stdout.write('\r/' + '  ');
-}, 300);
+let timer = 100;
 
-setTimeout(() => {
-  process.stdout.write('\r-' + '  ');
-}, 500);
+for (let iteration = 0; iteration < 2; iteration++) {
+  for (let animation of animationArray) {
+    setTimeout(() => {
+      process.stdout.write(animation + '  ');
+    }, timer);
 
-setTimeout(() => {
-  // Need to escape the backslash since it's a special character.
-  process.stdout.write('\r\\' + '  ');
-}, 700);
-
-setTimeout(() => {
-  process.stdout.write('\r|' + '  ');
-}, 900);
-
-setTimeout(() => {
-  process.stdout.write('\r|' + '  ');
-}, 1100);
-
-setTimeout(() => {
-  process.stdout.write('\r/' + '  ');
-}, 1300);
-
-setTimeout(() => {
-  process.stdout.write('\r-' + '  ');
-}, 1500);
-
-setTimeout(() => {
-  process.stdout.write('\r\\' + '  ');
-}, 1700);
-
-setTimeout(() => {
-  process.stdout.write('\r|' + '  ');
-}, 1900);
+    timer += 200;
+  }
+}
 
 setTimeout(() => {
   process.stdout.write('\r');
-}, 1950);
+}, timer + 50);
